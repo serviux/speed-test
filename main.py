@@ -10,6 +10,7 @@ headers = ["time", "upload", "download", "ping", "server", "group_id"]
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG, filemode="a", filename="speedtest.log")
 
+
 def get_test_results(group_id: str):
         """returns the upload and download speed test results for the speed test
         Parameters
@@ -38,7 +39,6 @@ def get_test_results(group_id: str):
         data["group_id"] = group_id
         logging.info(f"download: {down}, upload: {up}, ping: {results.ping}, server: {server['name']}  time: {now}")
         return data
-
 
 
 def _get_file_path()->str:
@@ -88,10 +88,3 @@ if __name__ == "__main__":
         except Exception as e:
                 logging.error("An occurred running the speed test")
                 logging.error(e.with_traceback())
-
-
-
-
-
-
-
